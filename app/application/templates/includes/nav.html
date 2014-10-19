@@ -13,24 +13,45 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="https://console.developers.google.com/project/skilled-acolyte-729">Dev Console</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="/status">Status</a></li>
+      <li><a target="_blank" href="https://console.developers.google.com/project/skilled-acolyte-729">Console</a></li>
+      <li><a target="_blank" href="https://github.com/iki/hack-bi-flow">Sources</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Docs <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="https://cloud.google.com/bigquery/docs/reference/v2">BigQuery API Reference</a></li>
-          <li><a href="https://cloud.google.com/bigquery/query-reference">BigQuery Query Reference</a></li>
+          <li><a target="_blank" href="https://cloud.google.com/bigquery/query-reference">BigQuery Query Reference</a></li>
+          <li><a target="_blank" href="https://cloud.google.com/bigquery/docs/reference/v2">BigQuery API Reference</a></li>
+          <li><a target="_blank" href="https://google-api-client-libraries.appspot.com/documentation/bigquery/v2/python/latest/">BigQuery Python API Reference</a></li>
           <li class="divider"></li>
-          <li><a href="https://cloud.google.com/appengine/docs">App Engine docs</a></li>
-          <li><a href="https://cloud.google.com/bigquery/authorization#service-accounts-appengine">App Engine BigQuery auth</a></li>
+          <li><a target="_blank" href="https://developers.google.com/api-client-library/python/">Google API's Python Docs</a></li>
+          <li><a target="_blank" href="https://api-python-client-doc.appspot.com/">Google API's Python Reference</a></li>
           <li class="divider"></li>
-          <li><a href="http://flask.pocoo.org">Flask docs</a></li>
-          <li><a href="http://getbootstrap.com">Bootstrap docs</a></li>
+          <li><a target="_blank" href="https://cloud.google.com/appengine/docs">App Engine Docs</a></li>
+          <li><a target="_blank" href="https://cloud.google.com/appengine/docs/python/">App Engine Python Reference</a></li>
+          <li><a target="_blank" href="https://cloud.google.com/bigquery/authorization#service-accounts-appengine">App Engine BigQuery Auth</a></li>
+          <li><a target="_blank" href="https://stackoverflow.com/questions/20349189/unable-to-access-bigquery-from-local-app-engine-development-server/22723127#22723127">App Engine BigQuery DevServer Auth</a></li>
+          <li class="divider"></li>
+          <li><a target="_blank" href="http://flask.pocoo.org">Flask Docs</a></li>
+          <li><a target="_blank" href="http://jinja.pocoo.org">Jinja Docs</a></li>
+          <li><a target="_blank" href="http://getbootstrap.com">Bootstrap Docs</a></li>
         </ul>
       </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      {% if users -%}
+      {% set user = users.get_current_user() -%}
+      {% if user -%}
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.nickname()|e }} <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ users.create_logout_url('/') }}">Logout</a></li>
+        </ul>
+      </li>
+      {% else -%}
+      <li><a href="{{ users.create_login_url('/') }}">Login</a></li>
+      {%- endif %}
+      {%- endif %}
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

@@ -25,7 +25,7 @@
 </head>
 <body>
 
-        {% include 'includes/nav.html' %} {# pull in navbar #}
+    {% include 'includes/nav.html' %} {# pull in navbar #}
 
     <div class="container" id="maincontent">
         {% include 'includes/flash_message.html' %} {# page-level feedback notices #}
@@ -33,11 +33,13 @@
             {% block content %}{# main content area #}{% endblock %}
         </div>
     </div><!-- /container -->
+
     <footer>
         <div id="footer" class="container">
             {% block footer %}{% endblock %}
         </div><!-- /footer -->
     </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{ jquery_version }}/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/{{ bootstrap_version }}/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/parsley.js/{{ parsley_version }}/parsley-standalone.min.js"></script>

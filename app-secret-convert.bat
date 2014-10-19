@@ -1,0 +1,2 @@
+:: https://stackoverflow.com/questions/20349189/unable-to-access-bigquery-from-local-app-engine-development-server/22723127#22723127
+cat "%~1" | openssl pkcs12 -nodes -nocerts -passin pass:notasecret | openssl rsa > "%~dp0app-secret.pem"

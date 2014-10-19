@@ -1,11 +1,11 @@
 VIRTUALENV="virtualenv"
-virtualenv_dir="venv"
+VIRTUALENV_DIR=".virtualenv"
 
 setup: venv deps
 
 venv:
-	test -d $(virtualenv_dir) || ($(VIRTUALENV) $(virtualenv_dir) || true)
-	. $(virtualenv_dir)/bin/activate
+	test -d $(VIRTUALENV_DIR) || ($(VIRTUALENV) $(VIRTUALENV_DIR) || true)
+	. $(VIRTUALENV_DIR)/bin/activate
 
 deps:
 	pip install -Ur requirements_dev.txt

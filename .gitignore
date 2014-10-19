@@ -7,7 +7,9 @@
 *.project
 *.pydevproject
 *.kpf
-venv
+.virtualenv
 
-# Don't store secret keys in version control
+# Secret keys
 secret_keys.py
+*.p12
+*.pem
